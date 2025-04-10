@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAUS App</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: #f8fafc;
+        color: #1e293b;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Firebase Web SDK -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged
+      } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        getDocs,
+        setDoc,
+        getDoc,
+        doc
+      } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDCS9_i8Kd4y-wf82IaQ2ao_ZrbSAxAIJg",
+        authDomain: "jaus-a48d5.firebaseapp.com",
+        projectId: "jaus-a48d5",
+        storageBucket: "jaus-a48d5.appspot.com",
+        messagingSenderId: "576345726383",
+        appId: "1:576345726383:web:ff207f1411016a5e76e35a"
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      window.firebaseAuth = getAuth(app);
+      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+      window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+      window.signOut = signOut;
+      window.onAuthStateChanged = onAuthStateChanged;
+
+      window.firebaseDB = getFirestore(app);
+      window.collection = collection;
+      window.addDoc = addDoc;
+      window.getDocs = getDocs;
+      window.setDoc = setDoc;
+      window.getDoc = getDoc;
+      window.doc = doc;
+    </script>
+
+    <!-- jsPDF para exportación PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      window.jspdf = window.jspdf || {};
+    </script>
+  </body>
+</html>

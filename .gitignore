@@ -1,0 +1,14 @@
+# Archivos de sistema y entornos
+AppData/
+Local Settings/
+.env
+.firebase/
+firebase-debug.log
+
+# Dependencias y builds
+node_modules/
+dist/
+.cache/
+
+# Firebase
+.firebaserc
